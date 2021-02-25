@@ -10,8 +10,8 @@ class Game {
             this.createWall(wall);
             this.attrWeapon();
             this.attrPlayers();
-            /*             this.aleaPlayer();
-                        this.roundPlayer(); */
+            this.aleaPlayer();
+            this.roundPlayer();
 
         }
         //créer un tableau 2d avec des position x et y 
@@ -138,28 +138,28 @@ class Game {
 
     }
 
-    /*  canMove(clickedBox) {
-         //ETAPE 1 RECUPERE LES INDEX DE LA BOITE COURANTE ET DE LA BOITE CIBLE
-         var currentPlayerBox = this.player[this.indexOfCurrentPlayer];
-         currentPlayerBox = parseInt(currentPlayerBox.y + "" + currentPlayerBox.x);
-         currentPlayerBox = this.boxs[currentPlayerBox];
-         var clickedPlayerBox = clickedBox.classList[1];
-         clickedPlayerBox = parseInt(clickedPlayerBox.replace("-", ""));
-         clickedPlayerBox = this.boxs[clickedPlayerBox];
-         //ETAPE 2 
-         clickedPlayerBox.player = currentPlayerBox.player;
-         currentPlayerBox.player = false;
+    canMove(clickedBox) {
+        //ETAPE 1 RECUPERE LES INDEX DE LA BOITE COURANTE ET DE LA BOITE CIBLE
+        var currentPlayerBox = this.player[this.indexOfCurrentPlayer];
+        currentPlayerBox = parseInt(currentPlayerBox.y + "" + currentPlayerBox.x);
+        currentPlayerBox = this.boxs[currentPlayerBox];
+        var clickedPlayerBox = clickedBox.classList[1];
+        clickedPlayerBox = parseInt(clickedPlayerBox.replace("-", ""));
+        clickedPlayerBox = this.boxs[clickedPlayerBox];
+        //ETAPE 2 
+        clickedPlayerBox.player = currentPlayerBox.player;
+        currentPlayerBox.player = false;
 
-         //ETAPE 3 VISUEL
-         var playerImage = currentPlayerBox.htmlBox.children();
-         currentPlayerBox.htmlBox.children().remove();
-         clickedPlayerBox.htmlBox.append(playerImage);
-         console.log(currentPlayerBox.htmlBox.children());
-         this.player[this.indexOfCurrentPlayer].updatePosition(clickedPlayerBox.x, clickedPlayerBox.y);
-         this.removeActionOnArea("canMove");
-         this.roundPlayer();
-     } */
-    /* addActionOnArea(action) {
+        //ETAPE 3 VISUEL
+        var playerImage = currentPlayerBox.htmlBox.children();
+        currentPlayerBox.htmlBox.children().remove();
+        clickedPlayerBox.htmlBox.append(playerImage);
+        console.log(currentPlayerBox.htmlBox.children());
+        this.player[this.indexOfCurrentPlayer].updatePosition(clickedPlayerBox.x, clickedPlayerBox.y);
+        this.removeActionOnArea("canMove");
+        this.roundPlayer();
+    }
+    addActionOnArea(action) {
         this.area.forEach(element => {
             element.addCssClass(action);
             element.addOnClick(`game.${action}(this)`);
@@ -171,11 +171,11 @@ class Game {
 
 
         });
-    } */
-    /*     walkOnWeapon() {
-            if (this.player.weapon) {
-                this.player.droppedWeapon = this.player.weapon;
-                this.player.weapon = this.boxs;
-            }
-        } */
+    }
+    walkOnWeapon() {
+        if (this.player.weapon) {
+            this.player.droppedWeapon = this.player.weapon;
+            this.player.weapon = this.boxs;
+        }
+    }
 }
