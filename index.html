@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/main.js" defer></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>FPS au tour par tour</title>
+</head>
+
+<body>
+
+
+    <div id="contenu">
+
+        <header>
+            <h1>Jeu de tour par tour </h1>
+        </header>
+        <div class="containerPlayers">
+
+
+
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="img/peach.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Peach</h5>
+
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" id="hpPeach">vie</li>
+                    <li class="list-group-item " id="weaponPeach">arme</li>
+                    <li class="list-group-item " id="damagePeach">dégat</li>
+                </ul>
+                <div class="card-body">
+                    <a href="#" class="card-link">défendre</a>
+                    <a href="#" class="card-link">Attaquer</a>
+                </div>
+            </div>
+            <div class="board">
+
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top img" src="img/bowser.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Bowser</h5>
+
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" id="hpBowser">vie</li>
+                    <li class="list-group-item" id="weaponBowser">arme</li>
+                    <li class="list-group-item" id="damageBowser">dégat</li>
+                </ul>
+                <div class="card-body">
+                    <a href="#" class="card-link ">défendre</a>
+                    <a href="#" class="card-link">Attaquer</a>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="js/box.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/weapon.js"></script>
+
+</body>
+
+</html>

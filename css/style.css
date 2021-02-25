@@ -1,0 +1,34 @@
+.carre {
+    width: 60px;
+    height: 60px;
+    border: solid 2px grey;
+}
+
+.board {
+    flex-wrap: wrap;
+    display: flex;
+    width: 625px;
+}
+
+.wall {
+    background-color: black;
+}
+
+.box {
+    width: 60px;
+    height: 60px;
+    border: solid 2px black;
+    margin: 1px;
+}
+
+.img {
+    width: 55px;
+}
+
+.containerPlayers {
+    display: flex;
+}
+
+.canMove {
+    background-color: darkgray;
+}
