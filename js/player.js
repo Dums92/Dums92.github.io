@@ -1,13 +1,21 @@
 const players = [{
         name: 'bowser',
         hp: 100,
-        weapon: 'eppee de fer',
+        weapon: {
+            damage: 15,
+            image: "img/epeeDeFer.png",
+            name: "epee de fer",
+        },
         image: 'img/bowser.png',
     },
     {
         name: 'peach',
         hp: 100,
-        weapon: 'epee de fer',
+        weapon: {
+            damage: 15,
+            image: "img/epeeDeFer.png",
+            name: "epee de fer",
+        },
         image: 'img/peach.png',
     }
 ]
@@ -28,7 +36,6 @@ class Player {
         this.image = data.image;
         this.name = data.name;
         this.weapon = data.weapon;
-        this.droppedWeapon = [];
         this.hp = hp;
         this.damage = damage;
         this.attack = false;
@@ -55,7 +62,6 @@ class Player {
             }
         }
     }
-
     updateInfo() {
         this.hp = hp;
         this.damage = damage;
@@ -66,5 +72,6 @@ class Player {
         this.y = y;
 
     }
+
 
 }

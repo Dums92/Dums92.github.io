@@ -41,7 +41,7 @@ class Game {
         }
         //attribue aléatoirement la classe CSS 'weapon' dans une case accecible 
     attrWeapon() {
-            for (let index = 0; index < weapons.length; index++) {
+            for (let index = 1; index < weapons.length; index++) {
                 var currentBox = this.boxs[Math.floor(Math.random() * this.boxs.length)];
                 while (!currentBox.available && !currentBox.weapon) {
                     currentBox = this.boxs[Math.floor(Math.random() * this.boxs.length)];
@@ -138,24 +138,30 @@ class Game {
 
     }
 
-    canMove(clickedBox) {
+    canMove(clickedBoxDom) {
+        var targetBox = this.boxs[parseInt(clickedBoxDom.classList[1].replace("-", ""))];
+        if (targetBox.weapon) {
+            var weaponImage = $('.weaponImg', targetBox.htmlBox)
+            weaponImage.hide()
+            weaponImage.attr('src', this.currentPlayer.weapon.image)
+            this.pickWeapon(targetBox.weapon, this.currentPlayer, targetBox)
+
+        }
         //ETAPE 1 RECUPERE LES INDEX DE LA BOITE COURANTE ET DE LA BOITE CIBLE
-        var currentPlayerBox = this.player[this.indexOfCurrentPlayer];
-        currentPlayerBox = parseInt(currentPlayerBox.y + "" + currentPlayerBox.x);
-        currentPlayerBox = this.boxs[currentPlayerBox];
-        var clickedPlayerBox = clickedBox.classList[1];
-        clickedPlayerBox = parseInt(clickedPlayerBox.replace("-", ""));
-        clickedPlayerBox = this.boxs[clickedPlayerBox];
+        var originBox = this.player[this.indexOfCurrentPlayer];
+        originBox = this.boxs[parseInt(originBox.y + "" + originBox.x)];
+
+
         //ETAPE 2 
-        clickedPlayerBox.player = currentPlayerBox.player;
-        currentPlayerBox.player = false;
+
+        targetBox.player = this.player[this.indexOfCurrentPlayer];
+        originBox.player = false;
 
         //ETAPE 3 VISUEL
-        var playerImage = currentPlayerBox.htmlBox.children();
-        currentPlayerBox.htmlBox.children().remove();
-        clickedPlayerBox.htmlBox.append(playerImage);
-        console.log(currentPlayerBox.htmlBox.children());
-        this.player[this.indexOfCurrentPlayer].updatePosition(clickedPlayerBox.x, clickedPlayerBox.y);
+        var playerImage = $('img:not([class*=weaponImg])', originBox.htmlBox)
+        targetBox.htmlBox.append(playerImage);
+        this.currentPlayer.updatePosition(targetBox.x, targetBox.y);
+        originBox.displayWeapon()
         this.removeActionOnArea("canMove");
         this.roundPlayer();
     }
@@ -172,10 +178,9 @@ class Game {
 
         });
     }
-    walkOnWeapon() {
-        if (this.player.weapon) {
-            this.player.droppedWeapon = this.player.weapon;
-            this.player.weapon = this.boxs;
-        }
+    pickWeapon(newWeapon, player, box) {
+        var playerWeapon = player.weapon;
+        player.weapon = newWeapon;
+        box.weapon = playerWeapon;
     }
 }

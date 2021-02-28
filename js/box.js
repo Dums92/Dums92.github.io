@@ -28,19 +28,19 @@ class Box {
         }
         //affiche visuellemnt les armes
     displayWeapon() {
-            this.loadImage(this.weapon.image, 55, 55, this.htmlBox);
+            this.loadImage(this.weapon.image, 55, 55, this.htmlBox, false);
         }
         //affiche visuellement les joueurs
     displayPlayer() {
-            this.loadImage(this.player.image, 50, 50, this.htmlBox);
+            this.loadImage(this.player.image, 50, 50, this.htmlBox, true);
         }
         //clique
     addOnClick(classe) {
             this.htmlBox.attr('onClick', classe);
         }
         //affiche l'image avec ces dimensions
-    loadImage(path, width, height, target) {
-            $('<img src="' + path + '">').load(function() {
+    loadImage(path, width, height, target, isPlayer) {
+            $(`<img src="${path}" ${!isPlayer ? "class='weaponImg'" : "" } >`).load(function() {
                 $(this).width(width).height(height).appendTo(target);
             });
         }
