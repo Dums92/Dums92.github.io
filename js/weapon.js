@@ -1,10 +1,4 @@
 const weapons = [{
-        name: 'epee de fer',
-        damage: 15,
-        image: 'img/epeeDeFer.png',
-
-    },
-    {
         name: 'epee ruby',
         damage: 20,
         image: 'img/epeeRuby.png',

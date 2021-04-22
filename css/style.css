@@ -1,34 +1,53 @@
-.carre {
-    width: 60px;
-    height: 60px;
-    border: solid 2px grey;
-}
-
-.board {
-    flex-wrap: wrap;
-    display: flex;
-    width: 625px;
-}
-
-.wall {
-    background-color: black;
-}
-
-.box {
-    width: 60px;
-    height: 60px;
-    border: solid 2px black;
-    margin: 1px;
-}
-
-.img {
-    width: 55px;
-}
-
-.containerPlayers {
-    display: flex;
-}
-
-.canMove {
-    background-color: darkgray;
-}
+        .carre {
+            width: 60px;
+            height: 60px;
+            border: solid 2px grey;
+        }
+        
+        .board {
+            flex-wrap: wrap;
+            display: flex;
+            width: 80%;
+        }
+        
+        .wall {
+            background-color: black;
+        }
+        
+        .box {
+            width: 60px;
+            height: 60px;
+            border: solid 2px black;
+            margin: 1px;
+        }
+        
+        .containerPlayers {
+            display: flex;
+            margin-left: 3%;
+        }
+        
+        .canMove {
+            background-color: darkgray;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .card {
+            width: 37%;
+            margin-right: 29px;
+        }
+        
+        .card-top-img {
+            width: 55%;
+        }
+        
+        img.card-img-top {
+            width: 55%;
+        }
+        
+        h3 {
+            text-align: center;
+            padding: 10px;
+        }

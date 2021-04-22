@@ -1,70 +1,71 @@
 const players = [{
         name: 'bowser',
         hp: 100,
-        weapon: 'eppee de fer',
+        weapon: {
+            damage: 15,
+            image: "img/epeeDeFer.png",
+            name: "epee de fer",
+        },
         image: 'img/bowser.png',
     },
     {
         name: 'peach',
         hp: 100,
-        weapon: 'epee de fer',
+        weapon: {
+            damage: 15,
+            image: "img/epeeDeFer.png",
+            name: "epee de fer",
+        },
         image: 'img/peach.png',
     }
 ]
 
 class Player {
-    x;
-    y;
+    line;
+    column;
     image;
     name;
     weapon;
     hp;
     damage;
-    attack;
-    defend;
-    constructor(x, y, data, hp, damage) {
-        this.x = x;
-        this.y = y;
+    isProtect;
+    constructor(line, column, data, hp, damage, idPlayer) {
+        this.line = line;
+        this.column = column;
         this.image = data.image;
         this.name = data.name;
         this.weapon = data.weapon;
-        this.droppedWeapon = [];
         this.hp = hp;
         this.damage = damage;
-        this.attack = false;
-        this.defend = false;
-
-
+        this.htmlBox = $(`.${idPlayer}`);
+        this.isProtect = false;
+        this.insertDataToDisplay();
     }
 
-    attrData() {
-        if (this.name == "Peach") {
-            this.htmlBox = {
-                hp: document.getElementById("hpPeach"),
-                weapon: document.getElementById("weaponPeach"),
-                damage: document.getElementById("damagePeach"),
-
-            }
-        }
-        if (this.name == "Bowser") {
-            this.htmlBox = {
-                hp: document.getElementById("hpBowser"),
-                weapon: document.getElementById("weaponBowser"),
-                damage: document.getElementById("damageBowser"),
-
-            }
-        }
-    }
-
-    updateInfo() {
+    updateInfo(hp) {
         this.hp = hp;
-        this.damage = damage;
-        this.weapon = weapon;
-    }
-    updatePosition(x, y) {
-        this.x = x;
-        this.y = y;
 
     }
 
+    insertDataToDisplay() {
+        var context = this.htmlBox
+        $('.hp', context).text(this.hp + ' hp')
+        $('.weapon', context).text(this.weapon.name)
+        $('.damage', context).text(this.weapon.damage + ' points de dégâts')
+        console.log(this);
+        if (this.isProtect == true) {
+            $('.defend', context).text('je me défend')
+        } else {
+            $('.defend', context).text(' ')
+        }
+
+    }
+
+    updatePosition(line, column) {
+        this.line = line;
+        this.column = column;
+    }
+
+
+    //displayWeaponOfCard() {}
 }
