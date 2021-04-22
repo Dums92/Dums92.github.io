@@ -1,24 +1,25 @@
 class Box {
-    y;
-    x;
+    line;
+    column;
     available;
     htmlBox;
     weapon;
     player;
 
-    constructor(x, y) {
-            this.x = x;
-            this.y = y;
+    constructor(line, column) {
+
+            this.line = line;
+            this.column = column;
             this.available = true;
             this.weapon = false;
             this.player = false;
-            this.displayBox(this.x, this.y);
-            this.htmlBox = $("." + this.y + "-" + this.x);
+            this.displayBox(this.line, this.column);
+            this.htmlBox = $("." + this.line + "-" + this.column);
         }
         //affiche visuellement le tableau
-    displayBox(x, y) {
+    displayBox(line, column) {
         var board = $(".board");
-        var content = "<div class= 'box " + y + "-" + x + "'></div>";
+        var content = "<div class= 'box " + line + "-" + column + "'></div>";
         board.append(content);
     }
 
